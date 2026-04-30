@@ -20,6 +20,7 @@ public class AlunoDAO {
             System.out.println("Aluno inserido com sucesso!");
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Falhas na inserção do Aluno!");
         }
     }
 
@@ -31,10 +32,12 @@ public class AlunoDAO {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                alunos.add(rs.getInt("id_aluno") + " - " + rs.getString("nome") + " - " + rs.getString("cpf"));
+                alunos.add(rs.getInt("id_aluno") + " - " + rs.getString("nome") + " - " 
+            + rs.getString("cpf"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Falhas na consulta de Alunos!");
         }
         return alunos;
     }
@@ -51,6 +54,7 @@ public class AlunoDAO {
             System.out.println("Aluno atualizado com sucesso!");
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Falhas na atualização do Aluno!");
         }
     }
 
@@ -64,6 +68,7 @@ public class AlunoDAO {
             System.out.println("Aluno deletado com sucesso!");
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Falhas na exclusão do Aluno!");
         }
     }
 }
