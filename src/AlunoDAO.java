@@ -13,7 +13,7 @@ public class AlunoDAO {
     public void inserir(String nome, String cpf) {
         String sql = "INSERT INTO alunos(nome, cpf) VALUES (?, ?)";
         try (Connection conn = Conexao.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, nome);
             stmt.setString(2, cpf);
             stmt.executeUpdate();
@@ -32,8 +32,7 @@ public class AlunoDAO {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                alunos.add(rs.getInt("id_aluno") + " - " + rs.getString("nome") + " - " 
-            + rs.getString("cpf"));
+                alunos.add(rs.getInt("id_aluno") + " - " + rs.getString("nome") + " - " + rs.getString("cpf"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,7 +45,7 @@ public class AlunoDAO {
     public void atualizar(int id_aluno, String novoNome, String novoCpf) {
         String sql = "UPDATE alunos SET nome = ?, cpf = ? WHERE id_aluno = ?";
         try (Connection conn = Conexao.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, novoNome);
             stmt.setString(2, novoCpf);
             stmt.setInt(3, id_aluno);
