@@ -32,7 +32,8 @@ public class AlunoDAO {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                alunos.add(rs.getInt("id_aluno") + " - " + rs.getString("nome") + " - " + rs.getString("cpf"));
+                alunos.add(rs.getInt("id_aluno") + " - " + rs.getString("nome") + " - " 
+                + rs.getString("cpf"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
